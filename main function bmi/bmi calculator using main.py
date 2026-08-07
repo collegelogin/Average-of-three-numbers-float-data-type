@@ -1,8 +1,29 @@
 
-def bmi(weight, height): #defining the function bmi that takes weight and height as parameters
-    return weight / (height ** 2) #return the bmi value by dividing weight by height squared
-if __name__ == "__main__": #main function that runs when the script is executed
+# BMI Calculator using Class and Object
 
- weight = float(input("Enter your weight in kilograms: "))
-height = float(input("Enter your height in meters: "))
-print("Your BMI is: ", bmi(weight, height)) #print the bmi value by calling the bmi function with weight and height as arguments
+class BMI:
+    def __init__(self, weight, height):
+        self.weight = weight
+        self.height = height
+
+    def calculate_bmi(self):
+        return self.weight / (self.height ** 2)
+
+    def show_result(self):
+        bmi = self.calculate_bmi()
+        print(f"Your BMI is: {bmi:.2f}")
+
+
+def main():
+    weight = float(input("Enter your weight in kg: "))
+    height = float(input("Enter your height in metres: "))
+
+    # Create an object
+    person = BMI(weight, height)
+
+    # Call the function
+    person.show_result()
+
+
+if __name__ == "__main__":
+    main()
